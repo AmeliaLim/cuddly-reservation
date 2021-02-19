@@ -19,30 +19,30 @@ app.use(express.urlencoded({extended: true}))
 //IMPORT EJS
 app.set('view engine', 'ejs')
 
-//Part A INITIAL ROUTES
+//Part A BASICS
 app.get('/', (req, res) => {
     //console.log(res)
     res.render('pages/app')
 }) 
 
 app.get('/users', (req, res) => {
-    res.render('pages/userName')
+    res.render('pages/users', {
+        users: db.users
+    })
 }) 
 
 app.get('/schedules', (req, res) => {
-    res.render('pages/schedules')
+    res.render('pages/schedules', {
+        schedules: db.schedules
+    })
 }) 
 
 //Part B PARAMS ROUTES
-
 app.get('/users/:id', (req, res) => {
-    //console.log(req.params.id)
-    res.render(db.users[req.params.id])
+    res.render('pages/users', {
+        users: db.users[req.params.id]
+    })
 }) 
-
-app.get('/users/:id/schedules', (req, res) => {
-    res.render(db.userName)
-})
 
 app.get('/users/:id/schedules', (req, res) => {
     const appointment = []
@@ -51,7 +51,9 @@ app.get('/users/:id/schedules', (req, res) => {
         appointment.push(db.schedules[i])
         }
     }
-    res.send(appointment)
+    res.render('pages/schedules', {
+        schedules: db.appointment
+    })
 })
 
 //PART C NEW DATA INPUT
