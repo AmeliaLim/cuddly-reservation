@@ -11,6 +11,7 @@ echo "node_modules" > .gitignore
 touch app.js
 node app.js
 ```
+*Installing .gitignore template on VS Studio. Selection of Node to be ignored. 
 
 ### Setting up initial Routes
 - Get Method 
