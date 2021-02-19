@@ -1,4 +1,4 @@
-# Cafe Reservations
+# Cafe Reservations :coffee:	
 
 ### To get started :metal:	
 ```
