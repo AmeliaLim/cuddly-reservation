@@ -1,6 +1,6 @@
 # Cafe Reservations
 
-### To get started
+### To get started :metal:	
 ```
 make empty folder
 git init
