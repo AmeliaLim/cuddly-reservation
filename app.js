@@ -28,9 +28,6 @@ app.get('/users/:id', (req, res) => {
     res.send(db.users[req.params.id])
 }) 
 
-app.get('/users/:id/schedules', (req, res) => {
-    res.json(db.users)
-})
 
 app.get('/users/:id/schedules', (req, res) => {
     const appointment = []
