@@ -1,4 +1,4 @@
-#### Cafe Reservations
+###### Cafe Reservations
 
 ### To get started
 ```
@@ -19,4 +19,4 @@ node app.js
 ```[req.params.id]```
 
 ### Setting up newUser and newSchedules
-- Using Crypto
+- Using [Crypto] (https://medium.com/@dimple.shanbhag/password-authentication-using-crypto-js-c278a4a1f4a9)
