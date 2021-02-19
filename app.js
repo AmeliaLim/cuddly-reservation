@@ -29,7 +29,7 @@ app.get('/users/:id', (req, res) => {
 }) 
 
 app.get('/users/:id/schedules', (req, res) => {
-    res.json(db.userName)
+    res.json(db.users)
 })
 
 app.get('/users/:id/schedules', (req, res) => {
