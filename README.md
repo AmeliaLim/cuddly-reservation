@@ -17,7 +17,8 @@ node app.js
 - Get Method 
 
 ## Setting up params route 
-```[req.params.id]```
+
+- ```[req.params.id]```
 
 ## Setting up newUser and newSchedules
 - Using Crypto (https://medium.com/@dimple.shanbhag/password-authentication-using-crypto-js-c278a4a1f4a9)
