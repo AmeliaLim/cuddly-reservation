@@ -1,8 +1,7 @@
 const express = require ('express')
 const app = express()
-
-const PORT = 3000
 const db = require ('./db.js')
+const PORT = 3000
 
 // ENCRYPTION
 const crypto = require('crypto')
@@ -11,14 +10,16 @@ const crypto = require('crypto')
 const morgan = require ('morgan')
 app.use(morgan ('dev'))
 
-//??
+//UNKNOWN FOUNDATION
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 //IMPORT EJS
 app.set('view engine', 'ejs')
 
-//Part A BASICS
+
+
+//PART A GENERAL ROUTERS
 app.get('/', (req, res) => {
     //console.log(res)
     res.render('pages/app')
@@ -36,7 +37,8 @@ app.get('/schedules', (req, res) => {
     })
 }) 
 
-//Part B PARAMS ROUTES
+
+//PART B SPECIFIC ROUTERS
 app.get('/users/:id', (req, res) => {
     res.render('pages/users', {
         users: db.users[req.params.id]
@@ -50,13 +52,27 @@ app.get('/users/:id/schedules', (req, res) => {
         appointment.push(db.schedules[i])
         }
     }
-    res.render('pages/schedules', {
-        schedules: db.appointment
+    res.render('pages/your-schedule', {
+        users: db.users[req.params.id],
+        schedules: appointment
     })
 })
 
-//PART C NEW DATA INPUT
 
+
+//NEW SPECIFIC ROUTERS
+app.get('/users/new', (req, res) => {
+    res.render('pages/new-user')
+})
+
+app.get('/schedules/new', (req, res) => {
+    res.render('pages/new-schedule', {
+    })
+})
+
+
+
+//PART C NEW DATA INPUT
 app.post('/users', (req, res) => {
     const hashSymbols = crypto.createHash('sha256').update(req.body.password).digest('hex')
     const newUser = {
@@ -66,7 +82,7 @@ app.post('/users', (req, res) => {
       password: hashSymbols
     }
     db.users.push(newUser)
-    res.send('well well new user welcome')
+    res.redirect('/users')
 })
 
 app.post('/schedules', (req, res) => {
@@ -77,10 +93,12 @@ app.post('/schedules', (req, res) => {
       end_at: req.body.end_at
     }
     db.schedules.push(newSchedule)
-    res.send('well well i shall see you later?')
+    res.redirect('/schedules')
 })
+
+
   
-  
+//PORT LISTENER
 app.listen(PORT, () => {
     console.log(`server is listening on localhost:${PORT}!\n`)
 })
