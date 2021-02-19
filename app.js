@@ -17,8 +17,8 @@ app.get('/users', (req, res) => {
     res.json(db.userName)
 }) 
 
-app.get('/shedules', (req, res) => {
-    res.json(db.planner)
+app.get('/schedules', (req, res) => {
+    res.json(db.schedules)
 }) 
 
 //Part B PARAMS ROUTES
