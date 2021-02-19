@@ -9,6 +9,7 @@ const crypto = require('crypto')
 
 //INSTALLING MORGAN FOR LOGIN
 const morgan = require ('morgan')
+const { render } = require('ejs')
 app.use(morgan ('dev'))
 
 //??
@@ -25,22 +26,22 @@ app.get('/', (req, res) => {
 }) 
 
 app.get('/users', (req, res) => {
-    res.json(db.userName)
+    res.render('pages/userName')
 }) 
 
-app.get('/shedules', (req, res) => {
-    res.json(db.planner)
+app.get('/schedules', (req, res) => {
+    res.render('pages/schedules')
 }) 
 
 //Part B PARAMS ROUTES
 
 app.get('/users/:id', (req, res) => {
     //console.log(req.params.id)
-    res.send(db.users[req.params.id])
+    res.render(db.users[req.params.id])
 }) 
 
 app.get('/users/:id/schedules', (req, res) => {
-    res.json(db.userName)
+    res.render(db.userName)
 })
 
 app.get('/users/:id/schedules', (req, res) => {
