@@ -1,6 +1,6 @@
 # Cafe Reservations :coffee:	
 
-### To get started :metal:	
+## To get started :metal:	
 ```
 make empty folder
 git init
@@ -13,11 +13,11 @@ node app.js
 ```
 *Installing .gitignore template on VS Studio. Selection of Node to be ignored. 
 
-### Setting up initial Routes
+## Setting up initial Routes
 - Get Method 
 
-### Setting up params route 
+## Setting up params route 
 ```[req.params.id]```
 
-### Setting up newUser and newSchedules
+## Setting up newUser and newSchedules
 - Using Crypto (https://medium.com/@dimple.shanbhag/password-authentication-using-crypto-js-c278a4a1f4a9)
