@@ -1,6 +1,6 @@
-## Cafe Reservations
+### Cafe Reservations
 
-#to get started
+##to get started
 // make empty folder
 // git init
 // npm init -y
@@ -10,11 +10,11 @@
 // touch app.js
 // node app.js
 
-#Setting up initial Routes
+##Setting up initial Routes
 - Get Method 
 
-#Setting up params route 
+##Setting up params route 
 ```[req.params.id]```
 
-#Setting up newUser and newSchedules
+##Setting up newUser and newSchedules
 - Using Crypto
