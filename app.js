@@ -9,7 +9,6 @@ const crypto = require('crypto')
 
 //INSTALLING MORGAN FOR LOGIN
 const morgan = require ('morgan')
-const { render } = require('ejs')
 app.use(morgan ('dev'))
 
 //??
