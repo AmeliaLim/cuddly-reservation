@@ -1,4 +1,4 @@
-###### Cafe Reservations
+# Cafe Reservations
 
 ### To get started
 ```
