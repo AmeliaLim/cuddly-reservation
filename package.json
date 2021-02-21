@@ -6,7 +6,8 @@
     "create-tables": "psql braedanbolt -h localhost -d mrcoffee_app -f sql/create_schedule_table.sql",
     "seed-tables": "psql braedanbolt -h localhost -d mrcoffee_app -f sql/seed_schedule_table.sql",
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,5 +19,8 @@
     "morgan": "^1.10.0",
     "pg": "^8.5.1",
     "pg-promise": "^10.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
