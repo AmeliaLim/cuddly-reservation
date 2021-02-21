@@ -1,13 +1,15 @@
 const express = require ('express')
 const app = express()
+const path = require ('path')
 const PORT = 4000
 
 
 //INSTALLING MORGAN FOR LOGIN
 const morgan = require ('morgan')
 app.use(morgan ('dev'))
+app.use('/static', express.static(path.join(__dirname, 'public')))
 
-//UNKNOWN FOUNDATION
+//UNKNOWN FOUNDATIONapp.use('/static', express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
