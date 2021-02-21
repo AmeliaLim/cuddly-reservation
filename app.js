@@ -1,10 +1,7 @@
 const express = require ('express')
 const app = express()
-const db = require ('./db.js')
-const PORT = 3000
+const PORT = 4000
 
-// ENCRYPTION
-const crypto = require('crypto')
 
 //INSTALLING MORGAN FOR LOGIN
 const morgan = require ('morgan')
@@ -17,14 +14,22 @@ app.use(express.urlencoded({extended: true}))
 //IMPORT EJS
 app.set('view engine', 'ejs')
 
+//DATABASE
+const dataBase = require('./database')
 
-
-
-//PART A GENERAL ROUTERS
 app.get('/', (req, res) => {
-    //console.log(res)
-    res.render('pages/app')
-}) 
+    database.any('SELECT FROM * schedule;')
+    .then((schedule) => {
+        res.render('pages/app', {
+            schedule: schedule
+        })
+    .catch((err) => {
+        res.render('page/error', {
+            err: err
+        })
+        
+    })
+})
 
 app.get('/users', (req, res) => {
     res.render('pages/users', {
@@ -45,19 +50,6 @@ app.get('/users/:id', (req, res) => {
         users: db.users[req.params.id]
     })
 }) 
-
-app.get('/users/:id/schedules', (req, res) => {
-    const appointment = []
-    for (let i = 0; i < db.schedules.length; i++) {
-        if (db.schedules[i].user_id == req.params.id) {
-        appointment.push(db.schedules[i])
-        }
-    }
-    res.render('pages/your-schedule', {
-        users: db.users[req.params.id],
-        schedules: appointment
-    })
-})
 
 
 
@@ -97,6 +89,7 @@ app.post('/schedules', (req, res) => {
     res.redirect('/schedules')
 })
 
+//DATA PUSH
 
   
 //PORT LISTENER
