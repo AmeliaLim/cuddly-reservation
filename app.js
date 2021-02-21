@@ -3,6 +3,10 @@ const app = express()
 const db = require ('./db.js')
 const PORT = 3000
 
+//PUBLIC FILES FOR CSS 
+const path = require ('path')
+app.use('/static', express.static(path.join(__dirname, 'public')))
+
 // ENCRYPTION
 const crypto = require('crypto')
 
@@ -13,6 +17,7 @@ app.use(morgan ('dev'))
 //UNKNOWN FOUNDATION
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+
 
 //IMPORT EJS
 app.set('view engine', 'ejs')
