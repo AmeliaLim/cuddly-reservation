@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
+    "create-tables": "psql braedanbolt -h localhost -d mrcoffee_app -f sql/create_schedule_table.sql",
+    "seed-tables": "psql braedanbolt -h localhost -d mrcoffee_app -f sql/seed_schedule_table.sql",
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
