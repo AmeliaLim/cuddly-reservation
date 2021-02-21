@@ -9,7 +9,7 @@ const morgan = require ('morgan')
 app.use(morgan ('dev'))
 app.use('/static', express.static(path.join(__dirname, 'public')))
 
-//UNKNOWN FOUNDATIONapp.use('/static', express.static(path.join(__dirname, 'public')))
+//UNKNOWN FOUNDATION
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
     })
 })
 
-app.get('/users', (req, res) => {
+app.get('/new', (req, res) => {
     res.render('pages/users', {
         users: db.users
     })
@@ -45,25 +45,6 @@ app.get('/schedules', (req, res) => {
     })
 }) 
 
-
-//PART B SPECIFIC ROUTERS
-app.get('/users/:id', (req, res) => {
-    res.render('pages/users', {
-        users: db.users[req.params.id]
-    })
-}) 
-
-
-
-//NEW SPECIFIC ROUTERS
-app.get('/users/new', (req, res) => {
-    res.render('pages/new-user')
-})
-
-app.get('/schedules/new', (req, res) => {
-    res.render('pages/new-schedule', {
-    })
-})
 
 
 
