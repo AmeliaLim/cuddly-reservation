@@ -19,6 +19,7 @@ app.set('view engine', 'ejs')
 
 
 
+
 //PART A GENERAL ROUTERS
 app.get('/', (req, res) => {
     //console.log(res)
